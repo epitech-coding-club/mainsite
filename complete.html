@@ -1,0 +1,685 @@
+<html><head>
+
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>Coding Club Live - Epitech IT</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <style>
+        /* --------------------------------------------------------------
+            FORM STYLES
+        ----------------------------------------------------------------- */
+
+        /* Border-box box model FTW! */
+        #pardot-form,
+        #pardot-form *,
+        #pardot-form *:before,
+        #pardot-form *:after {
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        /* Override form margin and padding set in the default stylesheet. Inherit font and color from page. */
+        #pardot-form {
+            margin: 0 0 7% 0;
+            padding: 0;
+            font: inherit;
+            color: inherit;
+        }
+
+        /* Override form field wrapper margin and padding set in the default stylesheet. */
+        #pardot-form .form-field,
+        #pardot-form .submit {
+            margin: 15px 0 15px 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        /* Remove top margin from first from field wrapper. */
+        #pardot-form .form-field:first-child {
+            margin-top: 0;
+        }
+
+        /* Set default input style. */
+        #pardot-form input {
+            border: 0;
+            border-radius: 3px;
+            box-sizing: border-box;
+            color: #2c3e50;
+            font-size: 14px;
+            padding: 0;
+            width: 100%;
+        }
+
+        /* When labels are not floated left, set width on text inputs, textareas, and selects to 100%. */
+        #pardot-form input.text,
+        #pardot-form input.date,
+        #pardot-form textarea,
+        #pardot-form select {
+            width: 100%;
+            font-family: inherit;
+            color: inherit;
+            padding-left: 5px;
+        }
+
+        /* When labels are floated left, set width on field labels to a percentage of available width. In browsers that support calc(), use static label width instead and the form field will consume the remaining width. */
+        #pardot-form.label-left .field-label {
+            width: 35%;
+            width: calc(115px);
+        }
+
+        /* When labels are floated left, set width on text inputs, textareas, and selects to a percentage. In supported browsers, set width to 100% minus the width of the label instead. */
+        #pardot-form.label-left input.text,
+        #pardot-form.label-left input.date,
+        #pardot-form.label-left textarea,
+        #pardot-form.label-left select {
+            width: 65%;
+            width: calc(100% - 115px);
+        }
+
+        /* When labels are floated left, indent supporting form elements by the same amount as the field label. */
+        #pardot-form.label-left span.value,
+        #pardot-form.label-left .description,
+        #pardot-form.label-left .no-label>*,
+        #pardot-form.label-left .submit,
+        #pardot-form.label-left .error.no-label {
+            margin-left: 35%;
+            margin-left: calc(115px);
+        }
+
+        /* Remove unnecessary left padding on required radio/checkbox field labels when label alignment is set to above and the required symbol is set to default in form styling options. */
+        #pardot-form label.inline {
+            padding-left: 0;
+        }
+
+        /* Backup styles in case padding is added to text inputs. */
+        #pardot-form input.date {
+            padding-left: 20px;
+            background-position: left center;
+        }
+
+        #pardot-form .submit input {
+            background-color: #2ab1e4 !important;
+            ;
+            color: #fff;
+        }
+
+        /* --------------------------------------------------------------
+            BASE
+        ----------------------------------------------------------------- */
+
+        /* Set the base font */
+        body {
+            color: #444;
+            font-family: inherit;
+            line-height: 27px;
+            font-size: 15px;
+        }
+
+        /* Set heading fonts */
+        h1 {
+            font-family: 'Arial Black', sans-serif;
+            color: #2bb1e4;
+            font-size: 23px;
+            margin-top: 0;
+        }
+
+        h2 {
+            font-family: 'Arial Black', sans-serif;
+            color: #2bb1e4;
+            font-size: 21px;
+        }
+
+        h3 {
+            font-size: 18px;
+            font-family: 'Arial Black', sans-serif;
+            color: #000;
+        }
+
+        i {
+            color: #ffffff;
+        }
+
+        /* Set default background colour */
+        .bgcolour {
+            background-color: #eee;
+        }
+
+        /* Set custom background colours for specific blocks, also update font colours if dark BG  */
+        .header {
+            background-image: url("https://pardot.epitech.eu/l/547002/2020-07-30/gqj1k/547002/155554/header_landing_coding_club_live2.jpg");
+            height: 517px;
+            background-position: center;
+            background-size: cover;
+        }
+
+        /* Responsive header */
+
+        @media only screen and (min-width : 1824px) {
+            .header {
+                background-image: url("https://pardot.epitech.eu/l/547002/2020-07-30/gqjx1/547002/155558/header_landing_coding_club_live_4k.jpg");
+                height: 677px;
+            }
+
+        }
+
+        @media only screen and (min-device-width : 768px) and (max-device-width : 1024px) {
+            .header {
+                background-image: url("https://pardot.epitech.eu/l/547002/2020-07-30/gqjx3/547002/155556/header_landing_coding_club_live_tab2.jpg");
+                height: 330px;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+
+        @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+            .header {
+                background-image: url("https://pardot.epitech.eu/l/547002/2020-07-30/gqj1h/547002/155552/header_landing_coding_club_live_mob2.jpg");
+                height: 567px;
+                background-position: center;
+                background-size: cover;
+            }
+        }
+
+
+
+
+        .block-one.bgcolour {
+            background-color: #20232c;
+            color: #fff;
+        }
+
+
+
+
+
+        /* --------------------------------------------------------------
+            TEMPLATE DETAILS
+        ----------------------------------------------------------------- */
+
+        .logo {
+            text-align: center;
+        }
+
+        img {
+            max-width: 100%;
+            margin-bottom: 0;
+        }
+
+        .logo,
+        .cta-container {
+            display: inline-block;
+            vertical-align: middle;
+            float: none;
+        }
+
+        .bpurple {
+            background-color: #2b2e83;
+            text-align: center;
+            vertical-align: middle;
+            padding: 5px;
+        }
+
+        .cta p {
+            margin-bottom: 0;
+            font-size: 21px;
+            font-weight: 200;
+        }
+
+        .block-two .thumbnail img {
+            max-width: 100%;
+        }
+
+        footer>div {
+            text-align: right;
+        }
+
+        /* footer BG */
+        .purple {
+            background-color: #2bb1e4;
+        }
+
+        .txtacc ul {
+            list-style: none;
+        }
+
+        .txtacc ul li::before {
+            content: "\2022";
+            /* Add content: \2022 is the CSS Code/unicode for a bullet */
+            color: #25438d;
+            /* Change the color */
+            font-weight: bold;
+            /* If you want it to be bold */
+            display: inline-block;
+            /* Needed to add space between the bullet and the text */
+            width: 1em;
+            /* Also needed for space (tweak if needed) */
+            margin-left: -1em;
+            /* Also needed for space (tweak if needed) */
+        }
+
+        /* --------------------------------------------------------------
+            SPACING
+        ----------------------------------------------------------------- */
+
+        /* make element edge to edge */
+        .flush {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        /* vertical padding */
+        .toppadding {
+            padding-top: 50px;
+        }
+
+        .vpadding {
+            padding-top: 20px;
+            padding-bottom: 50px;
+        }
+
+        /* top padding only */
+        .tpadding {
+            padding-top: 20px;
+            padding-bottom: 0px;
+        }
+
+        /* bottom padding only */
+        .bpadding {
+            padding-top: 0px;
+            padding-bottom: 20px;
+        }
+
+        /* large vertical padding */
+        .vpaddingLG {
+            padding-top: 50px;
+            padding-bottom: 50px;
+        }
+
+        .bmargin {
+            margin-bottom: 15px;
+        }
+
+        .smargin {
+            margin: 0 15px;
+        }
+
+        .mtop {
+            display: flex;
+            margin-top: 3%;
+        }
+
+        .mtop img {
+            max-width: 235px;
+        }
+
+        /* spave below headings */
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin-bottom: 15px;
+        }
+
+        /* space below paragraph */
+        p {
+            margin-bottom: 20px;
+        }
+
+        /* --------------------------------------------------------------
+            SOCIAL
+        ----------------------------------------------------------------- */
+
+        /* Social container spacing */
+        .social {
+            padding-top: 15px;
+            line-height: 20px;
+            float: left;
+            color: #ffffff;
+        }
+
+        /* Make everything within social display next to one another */
+        .social * {
+            display: inline;
+            line-height: 20px;
+        }
+
+        /* Social list spacing */
+        .social-list {
+            padding-left: 10px;
+            margin: 0px;
+        }
+
+        /* Social list display next to one another */
+        .social-list li {
+            display: inline;
+        }
+
+        /* Disable underlines on image link hover */
+        .social-list a:hover {
+            text-decoration: none;
+        }
+
+        /* Share button image specific style */
+        #share-buttons img {
+            width: 20px;
+            border: 0;
+            box-shadow: 0;
+            display: inline;
+        }
+
+        /* --------------------------------------------------------------
+            RESPONSIVE
+        ----------------------------------------------------------------- */
+        /* xs */
+        @media(max-width:767px) {
+            .mtop {
+                display: block;
+            }
+
+            .mtop img {
+                max-width: 100%;
+            }
+
+            .mtop .limg {
+                text-align: center;
+            }
+
+            .pull-right {
+                float: none !important;
+                text-align: center;
+            }
+
+            .social {
+                text-align: center;
+                float: none;
+            }
+
+            .cta {
+                padding-top: 20px;
+                text-align: center;
+            }
+
+            .logo {
+                width: 100%;
+                text-align: center;
+            }
+
+            .cta-container {
+                width: 100%;
+
+            }
+
+            .cta p {
+                margin-bottom: 0;
+            }
+
+            .jumbotron {
+                margin-bottom: 0;
+            }
+
+            .imobile {
+                display: none;
+                width: 0;
+            }
+        }
+
+        /* sm */
+        @media(max-width:768px) {
+            #pardot-form.label-left .field-label {
+                width: 100%;
+                text-align: left;
+            }
+
+            #pardot-form.label-left input.text,
+            #pardot-form.label-left input.date,
+            #pardot-form.label-left textarea,
+            #pardot-form.label-left select {
+                width: 100%;
+            }
+
+            #pardot-form.label-left span.value,
+            #pardot-form.label-left .description,
+            #pardot-form.label-left .no-label>*,
+            #pardot-form.label-left .submit,
+            #pardot-form.label-left .error.no-label {
+                width: 100%;
+            }
+
+            #pardot-form.label-left span.value,
+            #pardot-form.label-left .description,
+            #pardot-form.label-left .no-label>*,
+            #pardot-form.label-left .submit,
+            #pardot-form.label-left .error.no-label {
+                margin-left: 0;
+            }
+
+            form.form p {
+                margin-left: 0px !important;
+                padding-left: 0px !important;
+            }
+
+            .imobile {
+                display: none;
+                width: 0;
+            }
+
+            .txtacc {
+                font-size: 1.4rem;
+            }
+        }
+
+        /* md */
+        @media(max-width:992px) {}
+
+        /* lg */
+        @media(min-width:1200px) {}
+
+        form.form p label {
+            color: #ffffff !important;
+            font-family: sans-serif !important;
+            font-size: 12px !important;
+            text-align: left !important;
+            float: inherit !important;
+        }
+
+        form.form input.text {
+            border-bottom: 1px solid #e2e2dc !important;
+            border-top: 0 !important;
+            border-left: 0 !important;
+            border-right: 0 !important;
+        }
+
+        form.form p.no-label,
+        form.form p.email-pref {
+            margin: .2em 0 .6em 0 !important;
+        }
+
+        form.form select {
+            font-weight: normal;
+            height: 25px !important;
+        }
+
+        form.form span {
+            margin: 0 !important;
+            padding: 3px 2px !important;
+        }
+
+        form.form input.date {
+            width: 180px !important;
+        }
+
+        form.form p.submit input {
+            width: 150px !important;
+            height: 30px !important;
+            color: #ffffff !important;
+            background: #e30613 !important;
+            border-radius: 5px !important;
+        }
+
+        #pardot-form .value input {
+            width: 5% !important;
+        }
+
+        .txtacc {
+            font-family: 'Work Sans', sans-serif;
+            font-size: 1.5rem;
+            margin: 5% 0;
+        }
+
+        .resize {
+            width: 80%;
+        }
+
+        .col-md-4 {
+            margin: 0 0 2% 0;
+            background: #0067b7;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 5px 5px 10px 4px #807b7b;
+        }
+
+        .bgform {
+            background-image: url("https://pardot.epitech.eu/l/547002/2019-09-24/711tq/547002/128251/JPO_Epitech_bg.jpg");
+            height: 40px;
+        }
+
+        label a {
+            color: #ffffff;
+            text-decoration: underline;
+        }
+
+        .imobile {
+            width: 100%;
+            margin-bottom: 0;
+        }
+
+        .center {
+            text-align: center;
+        }
+
+        .icon-container {
+            display: inline-block;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .icon-container i {
+            color: #000;
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5JMPHGR" height="0" width="0"
+            style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="header vpadding">
+        <div class="container col-lg-12">
+            <div class="row">
+                <div class="col-md-12 col-sm-6">
+                </div><!-- col-md-9 -->
+            </div><!-- row -->
+        </div><!-- container -->
+    </div>
+    <div class="container tpadding col-lg-12">
+        <div class="row col-lg-12">
+            <div class="col-md-7">
+                <div class="editable mtop">
+                    <h1 pardot-region="page-title" data-id="28855">Des sessions live entièrement animées par des
+                        étudiants d'Epitech !</h1>
+                </div>
+                <div class="editable txtacc" pardot-region="main-content" data-id="28853">
+                    <p class="center">Avec un large choix de thématiques :</p>
+
+                    <div class="row col-md-12 col-sm-12" style="padding: 10px;">
+                        <div class="col-md-3 icon-container col-sm-6 col-xs-6"><img src="img/dice-d20.png" height="40px" width="40px" style="margin-bottom: 20px;"><br><strong>Algorithmes</strong>
+                        </div>
+
+                        <div class="col-md-3 icon-container col-sm-6 col-xs-6"><img src="img/959px-Font_Awesome_5_solid_gamepad.svg.png" height="40px" width="50px" style="margin-bottom: 20px;margin-left: 15px;margin-right: 15px;"><br><strong>Jeux
+                                vidéo</strong></div>
+
+                        <div class="col-md-3 icon-container col-sm-6 col-xs-6"><img src="img/1279px-Font_Awesome_5_solid_laptop-code.svg.png" height="40px" width="50px" style="margin-bottom: 20px;margin-left: 15px;margin-right: 15px;"><br><strong>Développement</strong>
+                        </div>
+
+                        <div class="col-md-3 icon-container col-sm-6 col-xs-6"><img src="img/1024px-Font_Awesome_5_solid_shield-alt.svg.png" height="40px" width="40px" style="margin-bottom: 20px;margin-left: 15px;margin-right: 15px;"><br><strong>cybersécurité</strong>
+                        </div>
+                    </div>
+
+                    <div class="row col-md-12 col-sm-12">
+                        <p>Le Coding Club est un&nbsp;<strong>atelier récurrent</strong>&nbsp;qui permet de vous initier
+                            à la programmation et au développement. Les sessions sont animées de façon ludique à travers
+                            des activités variées, comme&nbsp;le&nbsp;<strong>développement de jeux
+                                vidéo</strong>,&nbsp;<strong>la résolution d'énigmes sur la cybersécurité, etc…</strong>
+                        </p>
+
+                        <h3 style="text-align: center;"><img alt="" border="0" height="94" src="https://pardot.epitech.eu/l/547002/2020-05-25/d33r8/547002/150117/picto_c_academy_ei_2020.png" style="width: 100px; height: 94px; border-width: 0px; border-style: solid;" width="100">&nbsp;</h3>
+
+                        <p>Les sessions s'adaptent au contexte actuel, c'est pourquoi vous pourrez
+                            participer&nbsp;<strong>à&nbsp; des sessions nationalisées sur Discord&nbsp;!</strong>&nbsp;</p>
+                    </div>
+
+                    <section>
+                        <h2><strong>Contactez la ville de votre choix pour connaitre le programme !</strong></h2>
+                    </section>
+                    <div style="background:#97b0d9;color:#fff;padding:5px;border-radius:5px;">
+                        <h3 style="text-align: center;">?? Qui peut y participer ?</h3>
+
+                        <p style="text-align: center;"><b>Tout le monde
+                                !</b>&nbsp;C'est&nbsp;<b>gratuit</b>&nbsp;et&nbsp;<b>aucune
+                                compétence</b>&nbsp;préalable en programmation n'est nécessaire ! Il suffit juste de
+                            s'inscrire sur le site de la ville la plus proche de chez vous.</p>
+                    </div>
+
+                    <p style="padding-top:5px;">Si vous êtes enseignant, responsable d'une structure d'animation nous
+                        pouvons organiser des sessions de groupe sur mesure (également gratuitement), contactez-nous
+                        directement à&nbsp;&nbsp;<a href="http://go.pardot.com/codingclub@epitech.eu" style="text-decoration:underline;color:#2bb1e4;" target="_top">codingclub@epitech.eu</a></p>
+                </div>
+            </div><!-- div-md-5 -->
+            <div class="col-md-1">
+            </div>
+            <div class="col-md-4">
+                <div class="editable">
+                    <form accept-charset="UTF-8" method="post" class="form" id="pardot-form" action="/">                       
+                                
+
+                                <h3 style="color:#ffffff;text-align: center;">CODING CLUB LIVE</h3>
+
+
+                                  <p style="color:#ffffff;text-align: center;"><b>Inscrit avec succès nous vous contacterons grâce au donnée fournies lors du prochains coding club<br></b></p>
+                       
+
+</form>
+
+                </div>
+            </div>
+        </div>
+        <div class="purple cleagrfix col-lg-12">
+            <div class="container vpadding col-lg-12">
+                <div class="row">
+                    <footer>
+                        <div class="col-lg-12 col-sm-6 clearfix">
+                            <p style="text-align:left;"><img alt="" src="https://pardot.epitech.eu/l/547002/2020-03-24/9mfj6/547002/143963/mailing_logo_ei_white_2020.png">
+                            </p>
+                        </div>
+                        <div class="col-sm-6 clearfix">
+
+
+                        </div><!-- col-md-9 -->
+                        <div class="col-sm-6 clearfix">
+                            <div class="editable pull-right" pardot-region="footer_text">
+                                <p></p>
+                            </div>
+                        </div>
+                    </footer>
+                </div>
+            </div>
+        </div>
+</div></body></html>
